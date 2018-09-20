@@ -2,9 +2,11 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "clients_db",
+    "database": "CLIENTS_DB",
     "host": "localhost",
-    "dialect": "mysql"
+    "port": 8889,
+    "dialect": "mysql",
+    "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
   },
   "test": {
     "username": "root",
