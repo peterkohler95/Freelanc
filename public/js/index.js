@@ -15,6 +15,7 @@ $(function () {
       email: $('#emailID').val().trim()
     }
     console.log(newFreelancer);
+    $.post("/api/candidates", newFreelancer);
   }
 
   $("#submit").on("click", onSubmit)
