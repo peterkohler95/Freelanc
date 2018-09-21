@@ -1,36 +1,219 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>Hello World!</title>
-
-    <!-- Favicon -->
-    <link href="../assets/img/brand/favicon.png" rel="icon" type="image/png">
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-
-    <!-- Icons -->
-    <link href="../assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-    <link href="../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- Argon CSS -->
-    <link type="text/css" href="../assets/css/argon.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
 </head>
-
 <body>
-    <h1>Hello, world!</h1>
+  
+<div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">FREELANC</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="freelancer.html">Freelancer</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="companies.html">Companies</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="Network.html">Network</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+</div>
 
-    <!-- Core -->
-    <script src="/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="/assets/vendor/popper/popper.min.js"></script>
-    <script src="/assets/vendor/bootstrap/bootstrap.min.js"></script>
+<div class="carousel fade-carousel slide" data-interval="4000" id="bs-carousel">
+        <div class="carousel-inner">
+          <div class="item slides active">
+            <div class="slide-1">
+                <div class="overlay"></div>
+            </div>
+            <div class="hero">
+              <hgroup>
+                  <h1>We are Professoinal</h1>        
+                  <h3>Get work done with the right people</h3>
+              </hgroup>
+               
+              <a class="btn btn-hero btn-lg"id="btn1" href="freelancer.html" role="button">Freelancers</a>
+              <a class="btn btn-hero btn-lg"id="btn2" href="companies.html" role="button">Companies</a>
 
-    <!-- Theme JS -->
-    <script src="../assets/js/argon.js"></script>
+            </div>
+          </div>
+        </div> 
+</div>
+
+<div class="footer">
+<footer>
+
+    <p>  </p>
+
+
+    <form id="footerform">
+        <div>
+            <input class="input100" type="text" name="name" id="footerinput"placeholder="Email">
+            <button type="button" class="btn btn-outline-dark" id="subscribe">Subscribe</button>
+    
+        </div>
+    </form>
+    <!-- <a href="google.png"><img src="google.png" width="82" height="86" title="White flower" alt="Flower"></a>
+    <a href="twitter.png"><img src="twitter.png" width="82" height="86" title="White flower" alt="Flower"></a>
+    <a href="linkedin.png"><img src="linkedin.png" width="82" height="86" title="White flower" alt="Flower"></a> -->
+<p>  </p>
+<p id="copyright">   Copyright 2018
+    All rights reserved, powered by Freelanc </p>
+
+  </footer>
+
+</div>
+
+
+ <style>
+
+/********************************/
+/*       Fade Bs-carousel       */
+/********************************/
+.fade-carousel {
+    position: relative;
+    height: 100vh;
+}
+.fade-carousel .carousel-inner .item {
+    height: 100vh;
+} 
+/********************************/
+/*          Hero Headers        */
+/********************************/
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.hero h1 {
+    font-size: 6em;    
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+/********************************/
+/*            Overlay           */
+/********************************/
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: #080d15;
+    opacity: .7;
+}
+
+/********************************/
+/*          Custom Buttons      */
+/********************************/
+.btn.btn-lg {padding: 10px 40px;}
+.btn.btn-hero,
+.btn.btn-hero:hover,
+.btn.btn-hero:focus {
+    color: #f5f5f5;
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    outline: none;
+    margin: 20px auto;
+}
+
+/********************************/
+/*       Slides backgrounds     */
+/********************************/
+.fade-carousel .slides .slide-1, 
+.fade-carousel .slides .slide-2,
+.fade-carousel .slides .slide-3 {
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.fade-carousel .slides .slide-1 {
+  background-image: url(https://ununsplash.imgix.net/photo-1416339134316-0e91dc9ded92?q=75&fm=jpg&s=883a422e10fc4149893984019f63c818); 
+
+
+
+}
+/********************************/
+/*       footer     */
+/********************************/
+#subscribe{padding: .100rem .50rem;}
+#footerinput{border-color: #1abc9c;
+             align-content: center;}
+#footerform{text-align: center;}
+#copyright{font-size: 12px;
+           text-align: center;}
+
+
+
+@media (max-width: 992px) {
+  .alert-validate::before {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@media (max-width: 576px) {
+  .contact100-form {
+    padding: 43px 15px 57px 117px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact100-form {
+    padding: 43px 15px 57px 15px;
+  }
+
+  .label-input100 {
+    text-align: left;
+    position: unset;
+    top: unset;
+    left: unset;
+    width: 100%;
+    padding: 0 5px;
+  }
+}
+   </style>
+
+<script>
+
+document.getElementById("btn1").onclick = function() {myFunction()};
+
+function myFunction() {
+    document.getElementById("btn").innerHTML = "YOU CLICKED ME!";
+}
+
+	</script>
+        
+
+
+
 </body>
-
 </html>
