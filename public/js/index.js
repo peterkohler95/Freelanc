@@ -1,9 +1,10 @@
-$(document).ready(function () {
+$(function () {
+  console.log('test')
 
-  var onSubmit = function (event) {
+  function onSubmit(event) {
+
     event.preventDefault();
 
-    //Saves user input in new variable when submit button is clicked
     var newFreelancer = {
       name: $('#nameID').val().trim(),
       location: $('#locationID').val().trim(),
@@ -13,5 +14,8 @@ $(document).ready(function () {
       skills: $('#skillsID').val().trim(),
       email: $('#emailID').val().trim()
     }
+    console.log(newFreelancer);
   }
+
+  $("#submit").on("click", onSubmit)
 });
