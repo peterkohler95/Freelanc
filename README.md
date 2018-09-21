@@ -1,4 +1,4 @@
-# Project Title
+# Freelanc
 
 _Freelanc_ is a web application built for freelancers to upload their information (name, portfolio, skills) and for companies/recruiters to be given a list of freelancers who most closely meet their needs. Companies will then submit interest in 1+ freelancer, and we will be the middle man  Program designed with scaling in mind using MVC architecture. 
 
