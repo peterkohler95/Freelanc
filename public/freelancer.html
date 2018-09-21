@@ -14,11 +14,11 @@
   <!-- Argon CSS -->
   <!-- <link type="text/css" href="../assets/css/argon.css" rel="stylesheet"> -->
 
-
-
   <!-- Javascript -->
-  <script src="./js/index.js"></script>
+  <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
+    crossorigin='anonymous'></script>
 
+  <script src="./js/index.js"></script>
 
 </head>
 
@@ -68,63 +68,78 @@
   <div class="container-contact100">
     <div class="wrap-contact100">
 
-      <form class="contact100-form validate-form">
-        <div class="wrap-input100 validate-input" data-validate="Name is required">
+      <form class="contact100-form" id="post">
+        <div class="wrap-input100" data-validate="Name is required">
           <span class="label-input100">Name:</span>
 
-          <input class="input100" type="text" name="name" placeholder="Enter full name">
+          <input class="input100" type="text" id="nameID" placeholder="Enter full name">
+
           <span class="focus-input100"></span>
         </div>
 
-        <div class="wrap-input100 validate-input" data-validate="">
+        <div class="wrap-input100" data-validate="">
           <span class="label-input100">Location:</span>
-          <input class="input100" type="text" name="email" placeholder="Where are you">
+
+          <input class="input100" type="text" id="locationID" placeholder="Where are you">
+
           <span class="focus-input100"></span>
         </div>
 
-        <div class="wrap-input100 validate-input" data-validate="">
+        <div class="wrap-input100" data-validate="">
           <span class="label-input100">Reference:</span>
-          <input class="input100" type="text" name="phone" placeholder="Submit Reference">
+
+          <input class="input100" type="text" id="portfolioID" placeholder="Submit Reference">
+
           <span class="focus-input100"></span>
         </div>
 
-        <div class="wrap-input100 validate-input" data-validate="">
+        <div class="wrap-input100" data-validate="">
           <span class="label-input100">Bio:</span>
-          <input class="input100" type="text" name="phone" placeholder="Submit Bio">
+
+          <input class="input100" type="text" id="bioID" placeholder="Submit Bio">
+
           <span class="focus-input100"></span>
         </div>
 
-        <div class="wrap-input100 validate-input" data-validate="At least 1 profession is required">
+        <div class="wrap-input100" data-validate="At least 1 profession is required">
           <span class="label-input100">Profession:</span>
-          <input class="input100" type="text" name="phone" placeholder="Choose Prefession">
+
+          <input class="input100" type="text" id="roleID" placeholder="Choose Profession">
+
           <span class="focus-input100"></span>
         </div>
 
-        <div class="wrap-input100 validate-input" data-validate="">
+        <div class="wrap-input100" data-validate="">
           <span class="label-input100">Skills:</span>
-          <input class="input100" type="text" name="phone" placeholder="Enter skillsets">
+
+          <input class="input100" type="text" id="skillsID" placeholder="Enter skillsets">
+
           <span class="focus-input100"></span>
         </div>
-        <div class="wrap-input100 validate-input" data-validate="Account information is required">
+        <div class="wrap-input100" data-validate="Account information is required">
           <span class="label-input100">Paypal:</span>
-          <input class="input100" type="text" name="phone" placeholder="Enter Paypay account">
+
+          <input class="input100" type="text" id="paypalID" placeholder="Enter Paypay account">
+
           <span class="focus-input100"></span>
         </div>
-        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <div class="wrap-input100" data-validate="Valid email is required: ex@abc.xyz">
           <span class="label-input100">Email:</span>
-          <input class="input100" type="text" name="phone" placeholder="Enter Email address">
+
+          <input class="input100" type="text" id="emailID" placeholder="Enter Email address">
+
           <span class="focus-input100"></span>
+        </div>
+        <div class="container-contact100-form-btn">
+          <button class="contact100-form-btn" id="submit">
+            <span>
+              Submit
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+            </span>
+          </button>
         </div>
       </form>
     </div>
-  </div>
-  <div class="container-contact100-form-btn">
-    <button class="contact100-form-btn">
-      <span>
-        Submit
-        <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-      </span>
-    </button>
   </div>
 
 </body>
