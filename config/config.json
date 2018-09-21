@@ -4,9 +4,7 @@
     "password": "root",
     "database": "CLIENTS_DB",
     "host": "localhost",
-    "port": 8889,
-    "dialect": "mysql",
-    "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock"
+    "dialect": "mysql"
   },
   "test": {
     "username": "root",
