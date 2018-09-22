@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var freelancer = sequelize.define("freelancer", {
+    var Freelancer = sequelize.define("Freelancer", {
         name: DataTypes.STRING,
         location: DataTypes.STRING,
         portfolio: DataTypes.STRING,
@@ -8,5 +8,5 @@ module.exports = function (sequelize, DataTypes) {
         skills: DataTypes.STRING,
         email: DataTypes.STRING
     });
-    return freelancer;
+    return Freelancer;
 };

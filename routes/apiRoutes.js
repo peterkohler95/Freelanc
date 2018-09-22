@@ -18,7 +18,7 @@ module.exports = function (app) {
   app.post("/api/freelancer", function (req, res) {
     var data = req.body;
 
-    db.freelancer.create({
+    db.Freelancer.create({
       name: data.name,
       location: data.location,
       portfolio: data.portfolio,

@@ -1,4 +1,4 @@
-$(function () {
+$(document).ready(function () {
   console.log('test')
 
   function onSubmit(event) {
@@ -16,7 +16,7 @@ $(function () {
     }
     console.log(newFreelancer);
     $.post("/api/freelancer", newFreelancer);
-  }
+  };
 
   $("#submit").on("click", onSubmit)
-});
+})
