@@ -16,6 +16,7 @@ $(document).ready(function () {
     }
     console.log(newFreelancer);
     $.post("/api/freelancer", newFreelancer);
+    window.location.href = "/";
   };
 
   $("#submit").on("click", onSubmit)

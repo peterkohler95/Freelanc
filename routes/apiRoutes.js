@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function (app) {
-  app.get("/api/freelancer/:role", function (req, res) {
+  app.get("/api/freelancer/role/:role", function (req, res) {
     db.Freelancer.findAll({
         where: {
           role: req.params.role
