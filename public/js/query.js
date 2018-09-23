@@ -2,7 +2,7 @@ $(document).ready(function () {
     console.log('test')
     var resultsContainer = $(".results-container");
     var queryCategorySelect = $("#roleID").val();
-    queryCategorySelect.on("change", handleCategoryChange);
+    // queryCategorySelect.on("change", handleCategoryChange);
     var results;
 
 
@@ -57,8 +57,6 @@ $(document).ready(function () {
         newQueryTitle.text(post.title + " ");
         newQueryBody.text(post.body);
         newQueryTitle.append(newQueryDate);
-        newQueryCardHeading.append(deleteBtn);
-        newQueryCardHeading.append(editBtn);
         newQueryCardHeading.append(newQueryTitle);
         newQueryCardHeading.append(newQueryCategory);
         newQueryCardBody.append(newQueryBody);
@@ -81,7 +79,7 @@ $(document).ready(function () {
     }
 
     function handleCategoryChange() {
-        var newRoleCategory = $(this).val();
-        getResults(newRoleCategory);
+        var newQueryCategory = $(this).val();
+        getResults(newQueryCategory);
     }
 })
