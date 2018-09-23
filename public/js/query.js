@@ -1,9 +1,8 @@
 $(document).ready(function () {
     console.log('test')
     var resultsContainer = $(".results-container");
-    var queryCategorySelect = $("#roleID").val();
-    $(document).on("click", "#query", handleCategoryChange);
-    // queryCategorySelect.on("change", handleCategoryChange);
+    $("#query").on("click", handleCategoryChange);
+    var queryCategorySelect = $("#roleID");
     var results;
 
 
@@ -12,10 +11,10 @@ $(document).ready(function () {
         if (categoryString) {
             categoryString = "/category/" + categoryString;
         }
-        $.get("/api/freelancer/:role" + categoryString, function (data) {
-            console.log("role", data);
-            results = data;
-            if (!results || !results.length) {
+        $.get("/api/freelancer/role/:role" + categoryString, function (data) {
+            console.log("posts", data);
+            posts = data;
+            if (!posts || !posts.length) {
                 displayEmpty();
             } else {
                 initializeRows();
