@@ -2,17 +2,18 @@ $(document).ready(function () {
     console.log('test')
     var resultsContainer = $(".results-container");
     var queryCategorySelect = $("#roleID").val();
+    $(document).on("click", "#query", handleCategoryChange);
     // queryCategorySelect.on("change", handleCategoryChange);
     var results;
 
 
     function getResults(category) {
-        var categoryString = roleID || "";
+        var categoryString = category || "";
         if (categoryString) {
             categoryString = "/category/" + categoryString;
         }
         $.get("/api/freelancer/:role" + categoryString, function (data) {
-            console.log("Results", data);
+            console.log("role", data);
             results = data;
             if (!results || !results.length) {
                 displayEmpty();
