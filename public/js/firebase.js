@@ -22,28 +22,36 @@ firebase.auth().onAuthStateChanged(function (user) {
 })
 
 /* Login */
+var login = function () {
+    var email = $("#loginEmail").val();
+    var password = $("#loginPassword").val();
+    if (email != "" && password != "") {
 
-$("#loginBtn").click(
-    function () {
-        var email = $("#loginEmail").val();
-        var password = $("#loginPassword").val();
-        if (email != "" && password != "") {
+        $("#loginProgess").show();
+        $("#loginBtn").hide();
 
-            $("#loginProgess").show();
-            $("#loginBtn").hide();
+        firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
+            $("#loginError").show().text(error.message);
 
-            firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-                $("#loginError").show().text(error.message);
-
-                $("#loginProgess").hide();
-                $("#loginBtn").show();
-            })
-        }
+            $("#loginProgess").hide();
+            $("#loginBtn").show();
+        });
     }
-)
+}
+
+//Login on click
+$("#loginBtn").click(
+    login()
+);
+
+//Login on enter keypress
+$(document).bind("keyup", function (e) {
+    if (e.which == 13) {
+        login()
+    }
+});
 
 /* Sign Up */
-
 $("#btnSignUp").click(
     function () {
         var email = $("#loginEmail").val();
