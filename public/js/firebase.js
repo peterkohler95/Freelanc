@@ -42,6 +42,27 @@ $("#loginBtn").click(
     }
 )
 
+/* Sign Up */
+
+$("#btnSignUp").click(
+    function () {
+        var email = $("#loginEmail").val();
+        var password = $("#loginPassword").val();
+        if (email != "" && password != "") {
+
+            $("#loginProgess").show();
+            $("#loginBtn").hide();
+
+            firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
+                $("#loginError").show().text(error.message);
+
+                $("#loginProgess").hide();
+                $("#loginBtn").show();
+            })
+        }
+    }
+)
+
 /* Log Out */
 $("#signOutBtn").click(function () {
     firebase.auth().signOut().then(function () {
