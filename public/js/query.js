@@ -1,38 +1,39 @@
 $(document).ready(function () {
     console.log('test')
     var resultsContainer = $(".results-container");
-    $("#query").on("click", handleCategoryChange);
+    $("#submit").on("click", handleCategoryChange);
     var queryCategorySelect = $("#roleID");
     var results;
 
 
     function getResults(category) {
-        var categoryString = category || "";
-        if (categoryString) {
-            categoryString = "/category/" + categoryString;
-        }
-        $.get("/api/freelancer/role/:role" + categoryString, function (data) {
-            console.log("posts", data);
-            posts = data;
+        var categoryString = category;
+        // if (categoryString) {
+        //     categoryString = "/role/" + categoryString;
+        // }
+        $.get("/api/freelancer/role/" + categoryString, function (data) {
+            console.log("role", data);
+            var posts = data;
             if (!posts || !posts.length) {
                 displayEmpty();
             } else {
-                initializeRows();
+                initializeRows(posts);
             }
         });
     }
 
-    // Getting the initial list of posts
-    getResults();
+    // // Getting the initial list of posts
+    // getResults();
 
 
     // InitializeRows handles appending all of our constructed post HTML inside
     // blogContainer
-    function initializeRows() {
+    function initializeRows(data) {
+
         resultsContainer.empty();
         var resultsToAdd = [];
-        for (var i = 0; i < results.length; i++) {
-            resultsToAdd.push(createNewRow(results[i]));
+        for (var i = 0; i < data.length; i++) {
+            resultsToAdd.push(createNewRow(data[i]));
         }
         resultsContainer.append(resultsToAdd);
     }
@@ -54,8 +55,8 @@ $(document).ready(function () {
         var newQueryCardBody = $("<div>");
         newQueryCardBody.addClass("card-body");
         var newQueryBody = $("<p>");
-        newQueryTitle.text(post.title + " ");
-        newQueryBody.text(post.body);
+        newQueryTitle.text(post.name + " ");
+        newQueryBody.text(post.bio);
         newQueryTitle.append(newQueryDate);
         newQueryCardHeading.append(newQueryTitle);
         newQueryCardHeading.append(newQueryCategory);
@@ -78,8 +79,10 @@ $(document).ready(function () {
         resultsContainer.append(messageH2);
     }
 
-    function handleCategoryChange() {
-        var newQueryCategory = $(this).val();
+    function handleCategoryChange(event) {
+        event.preventDefault();
+        var newQueryCategory = $("#roleID").val();
+        console.log(newQueryCategory);
         getResults(newQueryCategory);
     }
 })
