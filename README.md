@@ -15,6 +15,7 @@ Uses JawsDB to save data with mySQL. Fully interactive and deployed on the Herok
 * [Sequelize](http://docs.sequelizejs.com/)
 * [MySQL](https://www.npmjs.com/package/mysql)
 * [NPM](https://www.npmjs.com/)
+* [Firebase](https://www.firebase.com)
 
 ## Authors
 
