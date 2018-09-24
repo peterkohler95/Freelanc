@@ -22,12 +22,6 @@ $(document).ready(function () {
         });
     }
 
-    // // Getting the initial list of posts
-    // getResults();
-
-
-    // InitializeRows handles appending all of our constructed post HTML inside
-    // blogContainer
     function initializeRows(data) {
 
         resultsContainer.empty();
@@ -41,22 +35,38 @@ $(document).ready(function () {
     function createNewRow(post) {
         var newQueryCard = $("<div>");
         newQueryCard.addClass("card");
+
         var newQueryCardHeading = $("<div>");
         newQueryCardHeading.addClass("card-header");
+
         var newQueryTitle = $("<h2>");
         var newQueryDate = $("<small>");
         var newQueryCategory = $("<h5>");
-        newQueryCategory.text(post.category);
+        newQueryCategory.text(post.location);
         newQueryCategory.css({
             float: "right",
             "font-weight": "700",
             "margin-top": "-15px"
         });
+
         var newQueryCardBody = $("<div>");
         newQueryCardBody.addClass("card-body");
-        var newQueryBody = $("<p>");
+
+        var newQueryBody = $("<div>");
         newQueryTitle.text(post.name + " ");
-        newQueryBody.text(post.bio);
+
+        newQueryBody.append("<h5 id='bio'>Biography");
+        newQueryBody.append(post.bio);
+        newQueryBody.append("<br><br>")
+
+        newQueryBody.append("<h5 id='skills'>Skills");
+        newQueryBody.append(post.skills);
+        newQueryBody.append("<br><br>")
+
+        newQueryBody.append("<h5 id='portfolio'>Portfolio");
+        newQueryBody.append(post.portfolio);
+        newQueryBody.append("<br>")
+
         newQueryTitle.append(newQueryDate);
         newQueryCardHeading.append(newQueryTitle);
         newQueryCardHeading.append(newQueryCategory);
