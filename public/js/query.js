@@ -1,29 +1,22 @@
 $(document).ready(function () {
-    console.log('test')
+
     var resultsContainer = $(".results-container");
     $("#submit").on("click", handleCategoryChange);
-    var queryCategorySelect = $("#roleID");
-    var results;
-
 
     function getResults(category) {
         var categoryString = category;
-        // if (categoryString) {
-        //     categoryString = "/role/" + categoryString;
-        // }
+
         $.get("/api/freelancer/role/" + categoryString, function (data) {
             console.log("role", data);
-            var posts = data;
-            if (!posts || !posts.length) {
+            if (!data || !data.length) {
                 displayEmpty();
             } else {
-                initializeRows(posts);
+                initializeRows(data);
             }
         });
     }
 
     function initializeRows(data) {
-
         resultsContainer.empty();
         var resultsToAdd = [];
         for (var i = 0; i < data.length; i++) {
@@ -32,7 +25,7 @@ $(document).ready(function () {
         resultsContainer.append(resultsToAdd);
     }
 
-    function createNewRow(post) {
+    function createNewRow(response) {
         var newQueryCard = $("<div>");
         newQueryCard.addClass("card");
 
@@ -42,7 +35,7 @@ $(document).ready(function () {
         var newQueryTitle = $("<h2>");
         var newQueryDate = $("<small>");
         var newQueryCategory = $("<h5>");
-        newQueryCategory.text(post.location);
+        newQueryCategory.text(response.location);
         newQueryCategory.css({
             float: "right",
             "font-weight": "700",
@@ -53,18 +46,18 @@ $(document).ready(function () {
         newQueryCardBody.addClass("card-body");
 
         var newQueryBody = $("<div>");
-        newQueryTitle.text(post.name + " ");
+        newQueryTitle.text(response.name + " ");
 
         newQueryBody.append("<h5 id='bio'>Biography");
-        newQueryBody.append(post.bio);
+        newQueryBody.append(response.bio);
         newQueryBody.append("<br><br>")
 
         newQueryBody.append("<h5 id='skills'>Skills");
-        newQueryBody.append(post.skills);
+        newQueryBody.append(response.skills);
         newQueryBody.append("<br><br>")
 
         newQueryBody.append("<h5 id='portfolio'>Portfolio");
-        newQueryBody.append(post.portfolio);
+        newQueryBody.append(response.portfolio);
         newQueryBody.append("<br>")
 
         newQueryTitle.append(newQueryDate);
@@ -73,10 +66,9 @@ $(document).ready(function () {
         newQueryCardBody.append(newQueryBody);
         newQueryCard.append(newQueryCardHeading);
         newQueryCard.append(newQueryCardBody);
-        newQueryCard.data("post", post);
+        newQueryCard.data("response", response);
         return newQueryCard;
     }
-
 
     function displayEmpty() {
         resultsContainer.empty();
@@ -92,7 +84,6 @@ $(document).ready(function () {
     function handleCategoryChange(event) {
         event.preventDefault();
         var newQueryCategory = $("#roleID").val();
-        console.log(newQueryCategory);
         getResults(newQueryCategory);
     }
 })
