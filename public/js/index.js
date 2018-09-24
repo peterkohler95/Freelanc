@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
   function onSubmit(event) {
@@ -14,9 +15,15 @@ $(document).ready(function () {
       email: $('#emailID').val().trim()
     }
 
-    $.post("/api/freelancer", newFreelancer);
-    window.location.href = "/";
-  };
+    $.post("/api/freelancer", newFreelancer).done(function() {
+      var modal = $('#myModal');
+      var btn = $("#submit");
+      modal.show();
 
-  $("#submit").on("click", onSubmit)
-})
+      var closeBtn = $("#myModal .close").on("click", function () {
+        modal.hide();
+      });
+    })
+  };  
+  $("#submit").on("click", onSubmit);
+});
