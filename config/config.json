@@ -3,8 +3,6 @@
     "username": "root",
     "password": "root",
     "database": "CLIENTS_DB",
-    "port": 8889,
-    "socketPath": "/Applications/MAMP/tmp/mysql/mysql.sock",
     "host": "localhost",
     "dialect": "mysql"
   },
