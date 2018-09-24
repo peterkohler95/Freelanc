@@ -11,7 +11,6 @@ Uses JawsDB to save data with mySQL. Fully interactive and deployed on the Herok
 ## Built With/Dependencies 
 
 * [Argon](https://demos.creative-tim.com/vue-argon-design-system/#/) - CSS Styling
-* [Handlebars](http://handlebarsjs.com/) - Template page creation
 * [Express](https://expressjs.com/)
 * [Sequelize](http://docs.sequelizejs.com/)
 * [MySQL](https://www.npmjs.com/package/mysql)
