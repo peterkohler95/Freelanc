@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
   function onSubmit(event) {
@@ -15,7 +14,7 @@ $(document).ready(function () {
       email: $('#emailID').val().trim()
     }
 
-    $.post("/api/freelancer", newFreelancer).done(function() {
+    $.post("/api/freelancer", newFreelancer).done(function () {
       var modal = $('#myModal');
       var btn = $("#submit");
       modal.show();
@@ -24,6 +23,6 @@ $(document).ready(function () {
         modal.hide();
       });
     })
-  };  
+  };
   $("#submit").on("click", onSubmit);
 });

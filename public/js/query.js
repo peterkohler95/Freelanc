@@ -27,15 +27,6 @@ $(document).ready(function () {
 
             console.log(users);
         });
-
-        // $.get("/api/freelancer/role/" + categoryString, function (data) {
-        //     console.log("role", data);
-        //     if (!data || !data.length) {
-        //         displayEmpty();
-        //     } else {
-        //         initializeRows(data);
-        //     }
-        // });
     }
 
     function initializeRows(data, users) {
@@ -76,7 +67,6 @@ $(document).ready(function () {
         var formattedDate = new Date(response.createdAt);
         formattedDate = moment(formattedDate).format("MMMM Do YYYY");
         newQueryDate.text(formattedDate);
-        // newQueryTitle.append(newQueryDate);
 
         newQueryTitle.append("<h6 id='date'>User submitted on ");
         newQueryTitle.append(newQueryDate);
@@ -93,7 +83,6 @@ $(document).ready(function () {
         newQueryBody.append(response.portfolio);
         newQueryBody.append("<br>")
 
-        // newQueryTitle.append(newQueryDate);
         newQueryCardHeading.append(newQueryTitle);
         newQueryCardHeading.append(newQueryCategory);
         newQueryCardBody.append(newQueryBody);
