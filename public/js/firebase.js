@@ -21,7 +21,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 })
 
-/* Login In */
+/* Login */
 
 $("#loginBtn").click(
     function () {

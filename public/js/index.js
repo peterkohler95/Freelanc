@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  console.log('test')
 
   function onSubmit(event) {
 
@@ -14,7 +13,7 @@ $(document).ready(function () {
       skills: $('#skillsID').val().trim(),
       email: $('#emailID').val().trim()
     }
-    console.log(newFreelancer);
+
     $.post("/api/freelancer", newFreelancer);
     window.location.href = "/";
   };
