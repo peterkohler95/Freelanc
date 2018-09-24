@@ -134,3 +134,30 @@
         padding: 0 5px;
     }
 }
+
+
+/********************************/
+/*       Log in Cover      */
+/********************************/
+
+.loginCover {
+    background: rgba(225, 225, 225, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginProgress {
+    display: none;
+}
+
+#loginError {
+    display: none;
+}
+

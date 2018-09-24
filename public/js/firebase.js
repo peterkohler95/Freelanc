@@ -1,5 +1,6 @@
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
+        console.log("You logged in");
         // User is signed in
         $(".loginCover").hide();
 
@@ -10,7 +11,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         dialog.close();
     } else {
         // No user is signed in
-        $(".loginCover").hide();
+        $(".loginCover").show();
 
         var dialog = document.querySelector("#loginDialog");
         if (!dialog.showModal) {
@@ -31,7 +32,7 @@ $("#loginBtn").click(
             $("#loginProgess").show();
             $("#loginBtn").hide();
 
-            firebase.auth.signInWithEmailAndPassword(email, password).catch(function () {
+            firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
                 $("#loginError").show().text(error.message);
 
                 $("#loginProgess").hide();
@@ -44,7 +45,7 @@ $("#loginBtn").click(
 /* Log Out */
 $("#signOutBtn").click(function () {
     firebase.auth().signOut().then(function () {
-
+        location.reload();
     }, function (error) {
         alert(error.message);
     })
