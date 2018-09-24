@@ -25,7 +25,15 @@
         padding: 0 5px;
     }
 
-    .companyInputP {
-        color: black;
-    }
+    
 }
+
+#signOutBtn {
+    position:absolute;
+  top: 20px;
+  right:20px;
+}
+
+
+
+

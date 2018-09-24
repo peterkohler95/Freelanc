@@ -442,3 +442,9 @@ transition: all 0.4s; */
         padding: 0 5px;
     }
 }
+
+#signOutBtn {
+    position:absolute;
+  top: 20px;
+  right:20px;
+}
