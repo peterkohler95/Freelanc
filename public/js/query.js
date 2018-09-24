@@ -5,27 +5,49 @@ $(document).ready(function () {
 
     function getResults(category) {
         var categoryString = category;
+        Promise.all([
+            $.ajax({
+                method: "GET",
+                url: "/api/freelancer/role/" + categoryString
+            }),
+            $.ajax({
+                url: 'https://randomuser.me/api/?results=25',
+                dataType: 'json',
+            })
+        ]).then(function (results) {
+            var data = results[0];
+            var users = results[1];
 
-        $.get("/api/freelancer/role/" + categoryString, function (data) {
             console.log("role", data);
             if (!data || !data.length) {
                 displayEmpty();
             } else {
-                initializeRows(data);
+                initializeRows(data, users);
             }
+
+            console.log(users);
         });
+
+        // $.get("/api/freelancer/role/" + categoryString, function (data) {
+        //     console.log("role", data);
+        //     if (!data || !data.length) {
+        //         displayEmpty();
+        //     } else {
+        //         initializeRows(data);
+        //     }
+        // });
     }
 
-    function initializeRows(data) {
+    function initializeRows(data, users) {
         resultsContainer.empty();
         var resultsToAdd = [];
         for (var i = 0; i < data.length; i++) {
-            resultsToAdd.push(createNewRow(data[i]));
+            resultsToAdd.push(createNewRow(data[i], users[i]));
         }
         resultsContainer.append(resultsToAdd);
     }
 
-    function createNewRow(response) {
+    function createNewRow(response, user) {
         var newQueryCard = $("<div>");
         newQueryCard.addClass("card");
 
@@ -33,7 +55,10 @@ $(document).ready(function () {
         newQueryCardHeading.addClass("card-header");
 
         var newQueryTitle = $("<h2>");
-        var newQueryDate = $("<small>");
+        var newQueryDate = $("<h6>");
+        newQueryDate.css({
+            display: "inline"
+        })
         var newQueryCategory = $("<h5>");
         newQueryCategory.text(response.location);
         newQueryCategory.css({
@@ -49,8 +74,11 @@ $(document).ready(function () {
         newQueryTitle.text(response.name + " ");
 
         var formattedDate = new Date(response.createdAt);
-        formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+        formattedDate = moment(formattedDate).format("MMMM Do YYYY");
         newQueryDate.text(formattedDate);
+        // newQueryTitle.append(newQueryDate);
+
+        newQueryTitle.append("<h6 id='date'>User submitted on ");
         newQueryTitle.append(newQueryDate);
 
         newQueryBody.append("<h5 id='bio'>Biography");
@@ -65,7 +93,7 @@ $(document).ready(function () {
         newQueryBody.append(response.portfolio);
         newQueryBody.append("<br>")
 
-        newQueryTitle.append(newQueryDate);
+        // newQueryTitle.append(newQueryDate);
         newQueryCardHeading.append(newQueryTitle);
         newQueryCardHeading.append(newQueryCategory);
         newQueryCardBody.append(newQueryBody);
