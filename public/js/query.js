@@ -48,6 +48,11 @@ $(document).ready(function () {
         var newQueryBody = $("<div>");
         newQueryTitle.text(response.name + " ");
 
+        var formattedDate = new Date(response.createdAt);
+        formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+        newQueryDate.text(formattedDate);
+        newQueryTitle.append(newQueryDate);
+
         newQueryBody.append("<h5 id='bio'>Biography");
         newQueryBody.append(response.bio);
         newQueryBody.append("<br><br>")
