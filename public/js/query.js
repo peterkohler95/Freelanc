@@ -11,7 +11,7 @@ $(document).ready(function () {
                 url: "/api/freelancer/role/" + categoryString
             }),
             $.ajax({
-                url: 'https://randomuser.me/api/?results=25',
+                url: 'https://randomuser.me/api/?results=30',
                 dataType: 'json',
             })
         ]).then(function (results) {
@@ -30,10 +30,11 @@ $(document).ready(function () {
     }
 
     function initializeRows(data, users) {
+        console.log(users, '<<<<<initializeRows>>')
         resultsContainer.empty();
         var resultsToAdd = [];
         for (var i = 0; i < data.length; i++) {
-            resultsToAdd.push(createNewRow(data[i], users[i]));
+            resultsToAdd.push(createNewRow(data[i], users.results[i]));
         }
         resultsContainer.append(resultsToAdd);
     }
@@ -41,15 +42,18 @@ $(document).ready(function () {
     function createNewRow(response, user) {
         var newQueryCard = $("<div>");
         newQueryCard.addClass("card");
+        newQueryCard.css({
+            "margin-top": "15px"
+        });
+
+        console.log(user, '<<createNewRow>>');
 
         var newQueryCardHeading = $("<div>");
         newQueryCardHeading.addClass("card-header");
 
         var newQueryTitle = $("<h2>");
         var newQueryDate = $("<h6>");
-        newQueryDate.css({
-            display: "inline"
-        })
+
         var newQueryCategory = $("<h5>");
         newQueryCategory.text(response.location);
         newQueryCategory.css({
@@ -67,9 +71,11 @@ $(document).ready(function () {
         var formattedDate = new Date(response.createdAt);
         formattedDate = moment(formattedDate).format("MMMM Do YYYY");
         newQueryDate.text(formattedDate);
-
-        newQueryTitle.append("<h6 id='date'>User submitted on ");
         newQueryTitle.append(newQueryDate);
+
+        newQueryBody.append(`<img src="${user.picture.medium}" />`);
+
+
 
         newQueryBody.append("<h5 id='bio'>Biography");
         newQueryBody.append(response.bio);
