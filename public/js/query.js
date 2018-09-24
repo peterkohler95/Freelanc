@@ -30,7 +30,6 @@ $(document).ready(function () {
     }
 
     function initializeRows(data, users) {
-        console.log(users, '<<<<<initializeRows>>')
         resultsContainer.empty();
         var resultsToAdd = [];
         for (var i = 0; i < data.length; i++) {
@@ -45,8 +44,6 @@ $(document).ready(function () {
         newQueryCard.css({
             "margin-top": "15px"
         });
-
-        console.log(user, '<<createNewRow>>');
 
         var newQueryCardHeading = $("<div>");
         newQueryCardHeading.addClass("card-header");
@@ -73,9 +70,15 @@ $(document).ready(function () {
         newQueryDate.text(formattedDate);
         newQueryTitle.append(newQueryDate);
 
-        newQueryBody.append(`<img src="${user.picture.medium}" />`);
+        // newQueryBody.append(`<img src="${user.picture.thumbnail}" />`);
 
-
+        var newQueryProfilePic = $("<img>");
+        newQueryProfilePic.attr('src', user.picture.large);
+        newQueryProfilePic.css({
+            float: "right",
+            "border-radius": "50px"
+        })
+        newQueryBody.append(newQueryProfilePic);
 
         newQueryBody.append("<h5 id='bio'>Biography");
         newQueryBody.append(response.bio);
@@ -85,8 +88,8 @@ $(document).ready(function () {
         newQueryBody.append(response.skills);
         newQueryBody.append("<br><br>")
 
-        newQueryBody.append("<h5 id='portfolio'>Portfolio");
-        newQueryBody.append(response.portfolio);
+        newQueryBody.append("<h5 id='portfolio'>References");
+        newQueryBody.append(`<a href="${response.portfolio}" class="btn btn-primary">Click To See Work</a>`);
         newQueryBody.append("<br>")
 
         newQueryCardHeading.append(newQueryTitle);
