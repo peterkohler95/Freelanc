@@ -4,7 +4,7 @@ _Freelanc_ is a web application built for freelancers to upload their informatio
 
 ### Deployment
 
-* [Heroku](https://vast-crag-74310.herokuapp.com/)
+* [Heroku](https://polar-fjord-99140.herokuapp.com/)
 
 Uses JawsDB to save data with mySQL. Fully interactive and deployed on the Heroku link above. 
 
@@ -24,5 +24,7 @@ Uses JawsDB to save data with mySQL. Fully interactive and deployed on the Herok
 * **Chris Grant**
 * **Peter Kohler**
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+### Issues
+
+If any issues are found, please add them to the Repository's _Issues_ page. Thanks and hope you all enjoy! 
 
